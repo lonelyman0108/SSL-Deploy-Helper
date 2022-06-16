@@ -12,7 +12,7 @@ import java.security.GeneralSecurityException;
 
 /**
  * <p>
- *
+ * 七牛云工具类
  * </p>
  *
  * @author LM

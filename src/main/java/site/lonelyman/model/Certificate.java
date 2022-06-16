@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- *
+ * 证书实体类
  * </p>
  *
  * @author LM

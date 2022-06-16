@@ -9,7 +9,9 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
- * 工具类通过流的方式读取文件.
+ * 文件工具类
+ * <p>
+ * 谢谢东山哥哥
  *
  * @author Junzhou Liu
  * @since 2020/10/17 19:31

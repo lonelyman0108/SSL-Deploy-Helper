@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * <p>
- *
+ * 七牛云部署服务接口实现类
  * </p>
  *
  * @author LM

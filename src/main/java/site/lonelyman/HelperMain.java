@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * <p>
- *
+ * 主启动类
  * </p>
  *
  * @author LM

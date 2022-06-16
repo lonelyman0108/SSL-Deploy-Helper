@@ -7,7 +7,7 @@ import site.lonelyman.util.FileUtils;
 
 /**
  * <p>
- *
+ * 配置类
  * </p>
  *
  * @author LM
@@ -27,7 +27,7 @@ public class HelperConfig {
         String config = FileUtils.readFile("config.json");
         if (config != null) {
             instance = JSONUtil.toBean(config, HelperConfig.class);
-        }else {
+        } else {
             log.error("配置文件不存在");
         }
     }
