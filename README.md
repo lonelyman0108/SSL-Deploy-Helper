@@ -4,11 +4,13 @@
 一个自动检测并更新签发脚本并上传至云服务上的小工具
 
 ## 用法
-<ol>
-<li>复制`config_sample.json`为`config.json`</li>
-<li>修改`config.json`中的配置（目前只支持`tencentCloud`，七牛云的配置可以忽略）</li>
-<li>执行`java -jar SSL-Deploy-Helper.jar`</li>
-</ol>
+
+1.复制`config_sample.json`为`config.json`
+
+2.修改`config.json`中的配置（目前只支持`tencentCloud`，七牛云的配置可以忽略）
+
+3.执行`java -jar SSL-Deploy-Helper.jar`
+
 
 ## 功能
 - [x] 检测云服务商托管的证书是否过期
