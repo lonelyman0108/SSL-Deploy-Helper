@@ -30,6 +30,6 @@
 
 ## 鸣谢
 
-感谢 [JetBrains](https://www.jetbrains.com/?from=NewRepoTemplate) 提供的IDE
+感谢 [JetBrains](https://www.jetbrains.com/?from=SSL-Deploy-Helper) 提供的IDE
 
-[![JetBrains-logo](https://i.loli.net/2020/10/03/E4h5FZmSfnGIgap.png)](https://www.jetbrains.com/?from=NewRepoTemplate)
+[![JetBrains-logo](https://i.loli.net/2020/10/03/E4h5FZmSfnGIgap.png)](https://www.jetbrains.com/?from=SSL-Deploy-Helper)
