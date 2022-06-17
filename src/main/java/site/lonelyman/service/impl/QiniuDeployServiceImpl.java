@@ -5,6 +5,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Response;
+import site.lonelyman.model.Cdn;
 import site.lonelyman.model.Certificate;
 import site.lonelyman.service.DeployService;
 import site.lonelyman.util.HttpUtils;
@@ -37,7 +38,7 @@ public class QiniuDeployServiceImpl implements DeployService {
 
         String sign = QiniuUtils.signRequest(QiniuUtils.DOMAIN_API, null, null);
 
-        try(Response response = HttpUtils.doGet(QiniuUtils.DOMAIN_API, QiniuUtils.QBOX_AUTHORIZATION_PREFIX + sign)) {
+        try (Response response = HttpUtils.doGet(QiniuUtils.DOMAIN_API, QiniuUtils.QBOX_AUTHORIZATION_PREFIX + sign)) {
             if (response == null || response.body() == null) {
                 log.error("获取证书列表失败");
                 return null;
@@ -76,5 +77,15 @@ public class QiniuDeployServiceImpl implements DeployService {
     @Override
     public boolean deleteDomainRecord(String domain, String subDomain, String type) {
         return false;
+    }
+
+    @Override
+    public boolean updateCdnCertificate(List<Cdn> cdnList, String certificateId) {
+        return false;
+    }
+
+    @Override
+    public List<Cdn> getCdnList(String domain) {
+        return null;
     }
 }
