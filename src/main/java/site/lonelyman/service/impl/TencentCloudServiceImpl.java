@@ -14,7 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 import site.lonelyman.config.HelperConfig;
 import site.lonelyman.model.Cdn;
 import site.lonelyman.model.Certificate;
-import site.lonelyman.service.DeployService;
+import site.lonelyman.service.ICdnService;
+import site.lonelyman.service.ICertificateService;
+import site.lonelyman.service.IDomainService;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -31,7 +33,7 @@ import java.util.List;
  */
 
 @Slf4j
-public class TencentCloudDeployServiceImpl implements DeployService {
+public class TencentCloudServiceImpl implements ICertificateService, ICdnService, IDomainService {
     private static final String SECRET_ID = HelperConfig.instance.getTencentCloudConfig().getSecretId();
     private static final String SECRET_KEY = HelperConfig.instance.getTencentCloudConfig().getSecretKey();
     private static final SslClient SSL_CLIENT = new SslClient(new Credential(SECRET_ID, SECRET_KEY), "");

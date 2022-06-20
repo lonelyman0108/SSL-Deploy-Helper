@@ -5,9 +5,8 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Response;
-import site.lonelyman.model.Cdn;
 import site.lonelyman.model.Certificate;
-import site.lonelyman.service.DeployService;
+import site.lonelyman.service.ICertificateService;
 import site.lonelyman.util.HttpUtils;
 import site.lonelyman.util.QiniuUtils;
 
@@ -27,7 +26,7 @@ import java.util.List;
  */
 
 @Slf4j
-public class QiniuDeployServiceImpl implements DeployService {
+public class QiniuServiceImpl implements ICertificateService {
     @Override
     public List<Certificate> getCertificateList() {
 
@@ -69,23 +68,4 @@ public class QiniuDeployServiceImpl implements DeployService {
         return null;
     }
 
-    @Override
-    public boolean createDomainRecord(String domain, String subDomain, String type, String value, boolean isOverwrite) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteDomainRecord(String domain, String subDomain, String type) {
-        return false;
-    }
-
-    @Override
-    public boolean updateCdnCertificate(List<Cdn> cdnList, String certificateId) {
-        return false;
-    }
-
-    @Override
-    public List<Cdn> getCdnList(String domain) {
-        return null;
-    }
 }

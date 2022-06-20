@@ -7,7 +7,7 @@ import org.shredzone.acme4j.challenge.Dns01Challenge;
 import org.shredzone.acme4j.exception.AcmeException;
 import org.shredzone.acme4j.util.CSRBuilder;
 import org.shredzone.acme4j.util.KeyPairUtils;
-import site.lonelyman.service.impl.TencentCloudDeployServiceImpl;
+import site.lonelyman.service.impl.TencentCloudServiceImpl;
 
 import java.io.*;
 import java.security.KeyPair;
@@ -29,7 +29,7 @@ public class GenerateCertificateService {
     private static final int KEY_SIZE = 2048;
 
     private static final int RETRY_TIMES = 20;
-    private final DeployService tencentCloudDeployService = new TencentCloudDeployServiceImpl();
+    private final TencentCloudServiceImpl tencentCloudService = new TencentCloudServiceImpl();
 
     private KeyPair loadOrCreateUserKeyPair() throws IOException {
         if (USER_KEY_FILE.exists()) {
@@ -79,7 +79,7 @@ public class GenerateCertificateService {
         log.info("记录名:【_acme-challenge.{}】,记录值:【{}】", domain, challenge.getDigest());
 
         //新增TXT记录
-        boolean result = tencentCloudDeployService.createDomainRecord(
+        boolean result = tencentCloudService.createDomainRecord(
                 domain,
                 "_acme-challenge",
                 "TXT",
@@ -120,7 +120,7 @@ public class GenerateCertificateService {
                 } catch (InterruptedException ex) {
                     throw new AcmeException("域名验证被终止");
                 }
-                boolean result = tencentCloudDeployService.deleteDomainRecord(
+                boolean result = tencentCloudService.deleteDomainRecord(
                         domain,
                         "_acme-challenge",
                         "TXT");

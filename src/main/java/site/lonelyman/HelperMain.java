@@ -5,9 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import site.lonelyman.config.HelperConfig;
 import site.lonelyman.model.Cdn;
 import site.lonelyman.model.Certificate;
-import site.lonelyman.service.DeployService;
 import site.lonelyman.service.GenerateCertificateService;
-import site.lonelyman.service.impl.TencentCloudDeployServiceImpl;
+import site.lonelyman.service.impl.TencentCloudServiceImpl;
 import site.lonelyman.util.FileUtils;
 
 import java.util.List;
@@ -29,9 +28,9 @@ public class HelperMain {
         String configDomain = HelperConfig.instance.getDomain();
         log.info("已配置需要管理的域名:【{}】", configDomain);
 
-        DeployService deployService = new TencentCloudDeployServiceImpl();
+        TencentCloudServiceImpl tencentCloudService = new TencentCloudServiceImpl();
         //查询证书列表
-        List<Certificate> certificateList = deployService.getCertificateList();
+        List<Certificate> certificateList = tencentCloudService.getCertificateList();
 
         //生成证书
         String certificateId = null;
@@ -44,7 +43,7 @@ public class HelperMain {
             try {
                 GenerateCertificateService generateCertificateService = new GenerateCertificateService();
                 generateCertificateService.fetchCertificate(configDomain);
-                certificateId = deployService.uploadCertificate(
+                certificateId = tencentCloudService.uploadCertificate(
                         FileUtils.readFile(configDomain + ".key"),
                         FileUtils.readFile(configDomain + "-chain.crt")
                 );
@@ -62,10 +61,10 @@ public class HelperMain {
         }
 
         //查询该域名下的CDN列表
-        List<Cdn> cdnList = deployService.getCdnList(configDomain);
+        List<Cdn> cdnList = tencentCloudService.getCdnList(configDomain);
 
         //更新CDN证书
-        deployService.updateCdnCertificate(cdnList, certificateId);
+        tencentCloudService.updateCdnCertificate(cdnList, certificateId);
 
     }
 }
