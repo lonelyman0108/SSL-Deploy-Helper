@@ -140,7 +140,7 @@ public class GenerateCertificateService {
 
         KeyPair userKeyPair = loadOrCreateUserKeyPair();
 
-        Session session = new Session("acme://letsencrypt.org/staging");
+        Session session = new Session("acme://letsencrypt.org");
 
         Account acct = findOrRegisterAccount(session, userKeyPair);
 
