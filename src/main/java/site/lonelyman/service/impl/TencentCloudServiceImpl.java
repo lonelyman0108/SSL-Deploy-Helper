@@ -166,6 +166,7 @@ public class TencentCloudServiceImpl implements ICertificateService, ICdnService
                 https.setSwitch("on");
                 ForceRedirect forceRedirect = new ForceRedirect();
                 forceRedirect.setSwitch("on");
+                forceRedirect.setRedirectType("https");
                 updateRequest.setForceRedirect(forceRedirect);
                 updateRequest.setHttps(https);
                 updateRequest.setDomain(cdn.getDomain());
